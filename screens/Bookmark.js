@@ -59,6 +59,14 @@ export default function Bookmark({ route, navigation }) {
     });
   };
 
+  const handleSorting = () => {
+    db.transaction(tx => {
+      tx.executeSql('select * from places order by country DESC;', [], (_, { rows }) =>
+        setPlaces(rows._array)
+      );
+    });
+  };
+
   const clear = (id) => {
     Alert.alert(
       'What?',
@@ -80,7 +88,7 @@ export default function Bookmark({ route, navigation }) {
     );
   };
 
-//Pass params to show city details
+  //Pass params to show city details
   // const handleShowDetails = (id) => {
   //   db.transaction(tx => {
   //     tx.executeSql('select * from places where id = ?;', [id], (_, { rows }) =>
@@ -104,7 +112,7 @@ export default function Bookmark({ route, navigation }) {
               <Text>{item.city}</Text>
             </ListItem.Title>
             {/* <TouchableOpacity onPress={() => handleShowDetails(item.id)}> */}
-              <Image style={{ width: 20, height: 20, marginLeft: 224 }} source={require('../images/show.png')} />
+            <Image style={{ width: 20, height: 20, marginLeft: 224 }} source={require('../images/show.png')} />
             {/* </TouchableOpacity> */}
             {/* <ListItem.Subtitle style={styles.subtitle} >
           insert AQI
@@ -122,7 +130,7 @@ export default function Bookmark({ route, navigation }) {
               <Text>{item.city}</Text>
             </ListItem.Title>
             {/* <TouchableOpacity onPress={() => handleShowDetails(item.id)}> */}
-              <Image style={{ width: 20, height: 20, marginLeft: 224 }} source={require('../images/show.png')} />
+            <Image style={{ width: 20, height: 20, marginLeft: 224 }} source={require('../images/show.png')} />
             {/* </TouchableOpacity> */}
             {/* <ListItem.Subtitle style={styles.subtitle} >
           insert AQI
