@@ -15,7 +15,6 @@ export default function LandingPage({ route, navigation }) {
     const [saved, setSaved] = useState(false)
     let [fontsLoaded] = useFonts({ Itim_400Regular });
     const [places, setPlaces] = React.useState([]);
-    // const secretKey = process.env.API_KEY;
 
     const [info, setInfo] = useState({
         temp: '',
@@ -99,7 +98,7 @@ export default function LandingPage({ route, navigation }) {
 
     const makeFavorite = () => {
         getPlaces(city)
-        navigation.navigate('Favorites', { country: country, state: state, city: city })
+        navigation.navigate('Favorites', { country: country, state: state, city: city})
     }
 
     if (!fontsLoaded) {

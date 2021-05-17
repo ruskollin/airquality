@@ -15,6 +15,7 @@ export default function Bookmark({ route, navigation }) {
   const [isAnswered, setIsAnswered] = useState(false);
   let [fontsLoaded] = useFonts({ Itim_400Regular });
   const [msg, setMsg] = useState('');
+  const [showCity, setShowCity] = useState('');
 
   useEffect(() => {
     db.transaction(tx => {
@@ -79,6 +80,16 @@ export default function Bookmark({ route, navigation }) {
     );
   };
 
+//Pass params to show city details
+  // const handleShowDetails = (id) => {
+  //   db.transaction(tx => {
+  //     tx.executeSql('select * from places where id = ?;', [id], (_, { rows }) =>
+  //       setShowCity(rows._array),
+  //       console.log(showCity),
+  //       navigation.navigate('City Details', { showCity: showCity })
+  //     )
+  //   });
+  // };
 
   const renderItem = ({ item, index }) => (
     <View>
@@ -92,7 +103,9 @@ export default function Bookmark({ route, navigation }) {
             <ListItem.Title style={styles.title} >
               <Text>{item.city}</Text>
             </ListItem.Title>
-            <Image style={{ width: 20, height: 20, marginLeft: 224 }} source={require('../images/show.png')} />
+            {/* <TouchableOpacity onPress={() => handleShowDetails(item.id)}> */}
+              <Image style={{ width: 20, height: 20, marginLeft: 224 }} source={require('../images/show.png')} />
+            {/* </TouchableOpacity> */}
             {/* <ListItem.Subtitle style={styles.subtitle} >
           insert AQI
           </ListItem.Subtitle> */}
@@ -108,7 +121,9 @@ export default function Bookmark({ route, navigation }) {
             <ListItem.Title style={styles.title} >
               <Text>{item.city}</Text>
             </ListItem.Title>
-            <Image style={{ width: 20, height: 20, marginLeft: 224 }} source={require('../images/show.png')} />
+            {/* <TouchableOpacity onPress={() => handleShowDetails(item.id)}> */}
+              <Image style={{ width: 20, height: 20, marginLeft: 224 }} source={require('../images/show.png')} />
+            {/* </TouchableOpacity> */}
             {/* <ListItem.Subtitle style={styles.subtitle} >
           insert AQI
         </ListItem.Subtitle> */}
@@ -204,10 +219,6 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginLeft: 200,
     fontFamily: 'Itim_400Regular',
-  },
-  buttonStyle: {
-    width: 292,
-    marginBottom: -25,
   },
   boxes: {
     backgroundColor: '#80CEE1',

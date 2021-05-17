@@ -45,7 +45,7 @@ const MainStackNavigator = () => {
         <Stack.Screen name="Country" component={SearchCountry} />
         <Stack.Screen name="State" component={SearchState} />
         <Stack.Screen name="Air Quality Index" component={LandingPage} />
-        <Stack.Screen name="CityDetails" component={CityDetails} />
+        <Stack.Screen name="City Details" component={CityDetails} />
         <Stack.Screen name="Favorites" component={Bookmark} />
         <Stack.Screen name="City" component={SearchCity} />
         <Stack.Screen name="Location" component={Location} />

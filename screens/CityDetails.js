@@ -10,7 +10,7 @@ import * as SQLite from 'expo-sqlite';
 const db = SQLite.openDatabase('datadb.db');
 
 export default function CityDetails({ route, navigation }) {
-    const { country, state, city } = route.params
+    const { showCity } = route.params
     const [data, setData] = useState([]);
     let [fontsLoaded] = useFonts({ Itim_400Regular });
 
@@ -23,7 +23,7 @@ export default function CityDetails({ route, navigation }) {
     })
 
     useEffect(() => {
-        getAirQuality()
+        console.log(showCity)
     }, []);
 
 
@@ -89,19 +89,18 @@ export default function CityDetails({ route, navigation }) {
                     source={require('../images/sky1.png')}
                     style={styles.backgroundImage}>
 
-                            <Icon
-                                containerStyle={{
-                                    marginTop: -5, marginLeft: -10
-                                }}
-                                raised
-                                reverse
-                                name='heart'
-                                type='font-awesome'
-                                color='red'
-                                onPress={makeFavorite}
-                            />
-                        <Text style={styles.title}>{city}, {country}</Text>
-                  
+                    <Icon
+                        containerStyle={{
+                            marginTop: -5, marginLeft: -10
+                        }}
+                        raised
+                        reverse
+                        name='heart'
+                        type='font-awesome'
+                        color='red'
+                    />
+                    <Text style={styles.title}>{city}, {country}</Text>
+
 
                     <View style={styles.wrapper}>
                         <View style={styles.row}>
@@ -130,32 +129,32 @@ export default function CityDetails({ route, navigation }) {
                                 </View>
                             </View>
 
-                           <View style={styles.row}>
-                                        <Image style={{ width: 50, height: 40 }} source={require('../images/temp.png')} />
-                                        <View style={styles.grid2}>
-                                            <View style={{ width: info.temp * 6, backgroundColor: 'sandybrown', height: 33, marginTop: 3.5, marginLeft: 3, borderRadius: 20 }}>
-                                                <Text style={styles.textTitle}>{info.temp}°c</Text>
-                                            </View>
-                                        </View>
+                            <View style={styles.row}>
+                                <Image style={{ width: 50, height: 40 }} source={require('../images/temp.png')} />
+                                <View style={styles.grid2}>
+                                    <View style={{ width: info.temp * 6, backgroundColor: 'sandybrown', height: 33, marginTop: 3.5, marginLeft: 3, borderRadius: 20 }}>
+                                        <Text style={styles.textTitle}>{info.temp}°c</Text>
                                     </View>
+                                </View>
+                            </View>
 
-                                    <View style={styles.row}>
-                                        <Image style={{ width: 30, height: 40, marginRight: 20, marginLeft: 10 }} source={require('../images/waterdrop.png')} />
-                                        <View style={styles.grid1}>
-                                            <View style={{ width: info.humidity * 2.5, backgroundColor: 'aqua', height: 32, marginTop: 4, marginLeft: 3, borderRadius: 20 }}>
-                                                <Text style={styles.textTitle}>{info.humidity}%</Text>
-                                            </View>
-                                        </View>
+                            <View style={styles.row}>
+                                <Image style={{ width: 30, height: 40, marginRight: 20, marginLeft: 10 }} source={require('../images/waterdrop.png')} />
+                                <View style={styles.grid1}>
+                                    <View style={{ width: info.humidity * 2.5, backgroundColor: 'aqua', height: 32, marginTop: 4, marginLeft: 3, borderRadius: 20 }}>
+                                        <Text style={styles.textTitle}>{info.humidity}%</Text>
                                     </View>
+                                </View>
+                            </View>
 
-                                    <View style={styles.row}>
-                                        <Image style={{ width: 45, height: 40, marginRight: 15 }} source={require('../images/windspeed.png')} />
-                                        <View style={styles.grid}>
-                                            <View style={{ width: info.windspeed * 12, backgroundColor: 'springgreen', height: 33, marginTop: 3, marginLeft: 3, borderRadius: 20 }}>
-                                                <Text style={styles.textTitle}>{info.windspeed} m/s</Text>
-                                            </View>
-                                        </View>
+                            <View style={styles.row}>
+                                <Image style={{ width: 45, height: 40, marginRight: 15 }} source={require('../images/windspeed.png')} />
+                                <View style={styles.grid}>
+                                    <View style={{ width: info.windspeed * 12, backgroundColor: 'springgreen', height: 33, marginTop: 3, marginLeft: 3, borderRadius: 20 }}>
+                                        <Text style={styles.textTitle}>{info.windspeed} m/s</Text>
                                     </View>
+                                </View>
+                            </View>
                         </View>
                     </View>
                 </ImageBackground>
