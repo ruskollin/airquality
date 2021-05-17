@@ -23,7 +23,7 @@ export default function CityDetails({ route, navigation }) {
     })
 
     useEffect(() => {
-        console.log(showCity)
+        getAirQuality()
     }, []);
 
 
