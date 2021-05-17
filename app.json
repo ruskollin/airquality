@@ -1,12 +1,12 @@
 {
   "expo": {
-    "name": "cityapp",
-    "slug": "cityapp",
+    "name": "Air Quality Index App",
+    "slug": "air-quality-index-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splashimage.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "",
+    "githubUrl": "https://github.com/ruskollin/airquality"
   }
 }
