@@ -16,7 +16,7 @@ export default function HomePage({ navigation }) {
         return (
             <SafeAreaView style={{ flex: 1 }}>
                 <ImageBackground
-                    source={require('../images/sky11.png')}
+                    source={require('../images/sky1.png')}
                     style={styles.backgroundImage}>
 
                     <Image style={{ width: 200, height: 60, marginTop: 70, marginLeft: 10, resizeMode: "cover", }} source={require('../images/logo.png')} />
