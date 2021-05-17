@@ -1,21 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import * as React from 'react';
+import { StyleSheet, View, Text, FlatList, TextInput, Alert, ImageBackground } from 'react-native';
+import { Ionicons} from '@expo/vector-icons';  
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack'; 
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import SearchCountry from './screens/SearchCountry';
+import SearchState from './screens/SearchState';
+import HomePage from './screens/HomePage';
+import LandingPage from './screens/LandingPage';
+import MyLocation from './screens/MyLocation';
+import MainStackNavigator from './navigation/MainStackNavigator';
+import TabNavigator from './navigation/TabNavigator';
+import DrawerNavigator from './navigation/DrawerNavigator';
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+    <NavigationContainer>
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+      <DrawerNavigator />
+
+    </NavigationContainer>
+  );
+};
+
+export default App;
